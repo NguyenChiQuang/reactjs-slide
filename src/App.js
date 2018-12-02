@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
+import SlideShow from './components/slider-show/SliderShow';
+import img1 from './assets/img1.jpg';
+import img2 from './assets/img2.jpg';
+import img3 from './assets/img3.jpg';
+import img4 from './assets/img4.jpg';
+import img5 from './assets/img5.jpg';
+import img6 from './assets/img6.jpg';
+
+const collection = [
+  { src: img1, caption: "Caption one" },
+  { src: img2, caption: "Caption two" },
+  { src: img3, caption: "Caption three" },
+  { src: img4, caption: "Caption four" },
+  { src: img5, caption: "Caption five" },
+  { src: img6, caption: "Caption six" },
+];
+
+export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <SlideShow 
+          input={collection}  
+          ratio={`3:2`}
+          mode={`manual`}
+        />
       </div>
     );
   }
 }
-
-export default App;
